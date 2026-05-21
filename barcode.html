@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Studio - Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Scripts for Generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <style>
+        .studio-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        .controls-panel {
+            flex: 1;
+            min-width: 300px;
+        }
+        .render-panel {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            background: var(--card-bg);
+            border: 2px dashed var(--accent-1);
+            border-radius: 15px;
+            padding: 2rem;
+        }
+        .type-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .type-btn {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid var(--input-border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--input-bg);
+            transition: all 0.3s;
+        }
+        .type-btn.active {
+            border-color: var(--accent-1);
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-1);
+        }
+        #qrcode-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            display: none;
+        }
+        #barcode-canvas {
+            display: none;
+            background: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">&larr; Back to Hub</a>
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Barcode Studio</h1>
+        <p class="page-subtitle">Instantly generate high-quality QR codes and Barcodes.</p>
+
+        <div class="studio-container">
+            <div class="glass-panel controls-panel">
+                <div class="type-selector">
+                    <div class="type-btn active" id="btn-qr" data-type="qr">QR Code</div>
+                    <div class="type-btn" id="btn-bar" data-type="barcode">Barcode (CODE128)</div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="data-input">Data / URL / Text</label>
+                    <textarea id="data-input" class="form-control" rows="4" placeholder="Enter text or URL here..."></textarea>
+                </div>
+
+                <button id="generate-btn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Generate</button>
+            </div>
+
+            <div class="render-panel">
+                <div id="placeholder-text" style="color: var(--text-secondary);">Your generated code will appear here</div>
+                
+                <!-- QR Code Container -->
+                <div id="qrcode-container"></div>
+                
+                <!-- Barcode Container -->
+                <canvas id="barcode-canvas"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="barcode.js"></script>
+</body>
+</html>

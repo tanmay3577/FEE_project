@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard - Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .weather-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .current-weather {
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .current-temp {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent-1);
+        }
+        .weather-icon-large {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Hourly Scroll */
+        .hourly-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            scrollbar-width: thin;
+        }
+        .hourly-item {
+            min-width: 80px;
+            text-align: center;
+            padding: 1rem;
+            background: var(--input-bg);
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+        }
+        .hourly-time { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+        .hourly-temp { font-weight: 800; }
+
+        /* Daily List */
+        .daily-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .daily-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--input-bg);
+            border-radius: 12px;
+        }
+        .daily-day { flex: 1; font-weight: 600; }
+        .daily-icon { flex: 1; text-align: center; }
+        .daily-temps { flex: 1; text-align: right; }
+        
+        #loading { text-align: center; padding: 3rem; font-weight: bold; color: var(--accent-1); }
+        #weather-content { display: none; }
+
+        .search-results-box {
+            position: absolute;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+        }
+        .search-result-item {
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        [data-theme="dark"] .search-result-item {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .search-result-item:hover {
+            background: var(--input-bg);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">&larr; Back to Hub</a>
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Global Weather Search</h1>
+        <p class="page-subtitle">Find precise weather data for any location on Earth.</p>
+
+        <div class="weather-container">
+            <!-- Search Interface -->
+            <div style="max-width: 500px; margin: 0 auto 1.5rem; position: relative;">
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="text" id="city-search" class="form-control" placeholder="Type a city name (e.g. Paris, Tokyo)..." autocomplete="off">
+                    <button id="search-btn" class="btn btn-primary">Search</button>
+                </div>
+                <div id="search-results" class="search-results-box"></div>
+            </div>
+
+            <div id="current-location-display" style="text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 800; color: var(--accent-1);"></div>
+
+            <div id="loading" style="display: none;">Locating and fetching live satellite data...</div>
+
+            <div id="weather-content">
+                <!-- Current Weather -->
+                <div class="glass-panel current-weather">
+                    <div class="weather-icon-large" id="current-icon">☀️</div>
+                    <div class="current-temp" id="current-temp">--°C</div>
+                    <div style="font-size: 1.2rem; color: var(--text-secondary);" id="current-desc">Loading...</div>
+                </div>
+
+                <!-- Hourly -->
+                <h3>Next 24 Hours</h3>
+                <div class="hourly-scroll" id="hourly-container">
+                    <!-- Hourly items JS -->
+                </div>
+
+                <!-- Daily -->
+                <h3>7-Day Forecast</h3>
+                <div class="daily-list" id="daily-container">
+                    <!-- Daily items JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>

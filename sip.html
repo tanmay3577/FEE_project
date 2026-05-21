@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP Calculator - Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-transition" id="page-transition"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">&larr; Back to Hub</a>
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="tool-container glass-panel">
+            <h1 class="page-title">SIP Calculator</h1>
+            <p class="page-subtitle">Calculate the future value of your Systematic Investment Plan.</p>
+
+            <div class="form-group">
+                <label class="form-label">Monthly Investment (₹)</label>
+                <input type="number" id="sip-amount" class="form-control" placeholder="e.g., 500" value="500">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Expected Return Rate (p.a %)</label>
+                <input type="number" id="sip-rate" class="form-control" placeholder="e.g., 12" value="12">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Time Period (Years)</label>
+                <input type="number" id="sip-years" class="form-control" placeholder="e.g., 10" value="10">
+            </div>
+
+            <button id="calc-sip-btn" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Calculate Wealth</button>
+
+            <div id="sip-results" style="display: none; margin-top: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                    <div class="result-box" style="margin-top: 0;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Total Investment</h4>
+                        <div id="res-investment" style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">₹0</div>
+                    </div>
+                    <div class="result-box" style="margin-top: 0;">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Est. Returns</h4>
+                        <div id="res-returns" style="font-size: 1.5rem; font-weight: 700; color: var(--success);">₹0</div>
+                    </div>
+                    <div class="result-box" style="margin-top: 0; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border-color: var(--accent-1);">
+                        <h4 style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem;">Total Value</h4>
+                        <div id="res-total" style="font-size: 1.5rem; font-weight: 800; color: var(--accent-1);">₹0</div>
+                    </div>
+                </div>
+                
+                <div style="width: 100%; max-width: 400px; margin: 2rem auto 0 auto;">
+                    <canvas id="sipChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="sip.js"></script>
+</body>
+</html>

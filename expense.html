@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-transition" id="page-transition"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">&larr; Back to Hub</a>
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="tool-container glass-panel">
+            <h1 class="page-title">Expense Tracker</h1>
+            <p class="page-subtitle">Track your daily expenses and visualize your spending habits.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; text-align: left; margin-bottom: 2rem;">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Expense Name</label>
+                    <input type="text" id="expense-name" class="form-control" placeholder="e.g., Coffee, Groceries">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Amount (₹)</label>
+                    <input type="number" id="expense-amount" class="form-control" placeholder="0.00" min="0">
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="form-label">Category</label>
+                    <select id="expense-category" class="form-control">
+                        <option value="Food">Food & Dining</option>
+                        <option value="Transport">Transportation</option>
+                        <option value="Utilities">Utilities</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group" style="margin-bottom: 0; display: flex; align-items: flex-end;">
+                    <button id="add-expense-btn" class="btn btn-primary" style="width: 100%;">Add Expense</button>
+                </div>
+            </div>
+
+            <div class="result-box" style="margin-bottom: 2rem; display: flex; justify-content: space-around; align-items: center;">
+                <div>
+                    <h3 style="color: var(--text-secondary); margin-bottom: 0.5rem;">Total Expenses</h3>
+                    <div id="total-expense" class="result-value">₹0.00</div>
+                </div>
+                <button id="clear-expenses-btn" class="btn">Clear Data</button>
+            </div>
+
+            <div style="width: 100%; max-width: 400px; margin: 0 auto;">
+                <canvas id="expenseChart"></canvas>
+            </div>
+            
+            <div id="expense-list" style="margin-top: 2rem; text-align: left; max-height: 200px; overflow-y: auto;">
+                <!-- Expenses will be listed here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="expense.js"></script>
+</body>
+</html>

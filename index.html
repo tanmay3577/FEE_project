@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Dynamic Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    <div class="page-transition" id="page-transition"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Welcome to Your Utilities</h1>
+        <p class="page-subtitle">A collection of smart tools built for the modern web.</p>
+
+        <div class="hub-grid">
+            <!-- Tool 1: Currency Converter -->
+            <a href="currency.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">💱</span>
+                <h2 class="tool-title">Currency Exchange</h2>
+                <p class="tool-desc">Real-time mock conversion rates for global currencies with an intuitive interface.
+                </p>
+            </a>
+
+            <!-- Tool 2: World Clocks -->
+            <a href="clocks.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">🌍</span>
+                <h2 class="tool-title">World Clocks</h2>
+                <p class="tool-desc">Track time across multiple global time zones simultaneously in real-time.</p>
+            </a>
+
+            <!-- Tool 3: Password Generator -->
+            <a href="password.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">🔐</span>
+                <h2 class="tool-title">Password Generator</h2>
+                <p class="tool-desc">Create highly secure, randomized passwords based on your specific criteria.</p>
+            </a>
+
+            <!-- Tool 4: BMI Calculator -->
+            <a href="bmi.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">⚖️</span>
+                <h2 class="tool-title">BMI Calculator</h2>
+                <p class="tool-desc">Calculate your Body Mass Index quickly and see which health category you fall into.
+                </p>
+            </a>
+
+            <!-- Tool 5: Financial Markets -->
+            <a href="market.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">💹</span>
+                <h2 class="tool-title">Financial Markets</h2>
+                <p class="tool-desc">Live simulated tracking for Gold, Silver, and popular Stock Market assets.</p>
+            </a>
+
+            <!-- Tool 6: Barcode Studio -->
+            <a href="barcode.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">🔲</span>
+                <h2 class="tool-title">Barcode Studio</h2>
+                <p class="tool-desc">Instantly generate high-quality QR codes and traditional barcodes from text.</p>
+            </a>
+
+            <!-- Tool 7: Weather Dashboard -->
+            <a href="weather.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">🌤️</span>
+                <h2 class="tool-title">Weather Dashboard</h2>
+                <p class="tool-desc">Real-time weather data with hourly and 7-day forecasting for global cities.</p>
+            </a>
+
+            <!-- Tool 8: Expense Tracker -->
+            <a href="expense.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">💰</span>
+                <h2 class="tool-title">Expense Tracker</h2>
+                <p class="tool-desc">Manage your personal finances, track daily expenses, and visualize your spending
+                    habits.</p>
+            </a>
+
+
+            <!-- Tool 9: SIP Calculator -->
+            <a href="sip.html" class="tool-card glass-panel tilt-card">
+                <span class="tool-icon">🌱</span>
+                <h2 class="tool-title">SIP Calculator</h2>
+                <p class="tool-desc">Calculate future wealth and compound interest for your Systematic Investment Plans.
+                </p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-title">🚀 Smart Utility Finance Hub</div>
+            <div class="footer-creators">Created by Tanmay Arora and Karanveer Sharma</div>
+            <div class="footer-dept">Department - BE CSE AIML</div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">&copy; 2026 All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- AI Bot Chat Interface -->
+    <button class="chatbot-toggle-btn" id="chatbot-toggle-btn">
+        <span class="chat-icon">💬</span>
+    </button>
+
+    <div class="chatbot-panel glass-panel" id="chatbot-panel">
+        <div class="chatbot-header">
+            <h3>🤖 Expert AI Bot</h3>
+            <div class="chatbot-controls">
+                <button id="chatbot-expand-btn" class="chat-ctrl-btn" title="Expand to Entire Tab">⛶</button>
+                <button id="chatbot-close-btn" class="chat-ctrl-btn" title="Close Chat">✖</button>
+            </div>
+        </div>
+        
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                Hello! I am your AI Financial Advisor. How can I help you today?
+            </div>
+        </div>
+        
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" class="form-control" placeholder="Ask for financial advice...">
+            <button id="chatbot-send-btn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHsu0004DFkGweKws5sR5110KxHkYikP74r//k1T/B1l8i6z+1oZ+j1o+1wK//l+A+iJ+rBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

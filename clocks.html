@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clocks - Smart Utility Finance Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tz-controls {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+        .remove-btn {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+            cursor: pointer;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .remove-btn:hover {
+            background: var(--danger);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">🚀 Smart Utility Finance Hub</a>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">&larr; Back to Hub</a>
+            <div id="global-clock" class="clock-widget">--:--:--</div>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Global Time Tracker</h1>
+        <p class="page-subtitle">Add and track any time zone across the world.</p>
+
+        <div class="tz-controls">
+            <select id="tz-select" class="form-control">
+                <!-- Populated by JS -->
+            </select>
+            <button id="add-btn" class="btn btn-primary" style="white-space: nowrap;">Add Clock</button>
+        </div>
+
+        <div class="clocks-grid" id="clocks-container">
+            <!-- Clocks will be injected here by JS -->
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="clocks.js"></script>
+</body>
+</html>
