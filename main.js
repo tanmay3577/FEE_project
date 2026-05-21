@@ -203,12 +203,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetUrl = `http://localhost:${port}/api/chat`;
                 }
 
-                // Call local backend endpoint
                 const response = await fetch(targetUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text })
                 });
+
+                // Check if the response is actually JSON before parsing
+                const contentType = response.headers.get("content-type");
+                if (!contentType || !contentType.includes("application/json")) {
+                    throw new Error("Server returned HTML instead of JSON. Are you on GitHub Pages?");
+                }
 
                 const data = await response.json();
                 typingIndicator.remove();
@@ -218,17 +223,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendMessage(botResponse, 'bot-message', true);
                 } else {
                     console.error("API Error:", data);
-                    appendMessage("❌ Sorry, I encountered an error. Please try again later.", 'bot-message');
+                    appendMessage(`❌ API Error: ${data.error || 'Something went wrong.'} (Did you add your API key in Vercel settings?)`, 'bot-message');
                 }
             } catch (error) {
                 console.error("Network Error:", error);
                 typingIndicator.remove();
                 
-                // Make the error helpful if it's a network issue
-                if (error.name === 'TypeError' || error.message.includes('fetch')) {
+                const isGithub = window.location.hostname.includes('github.io');
+                
+                if (isGithub) {
+                    appendMessage("❌ **GitHub Pages Error:** GitHub Pages only hosts static files and does not support backends. Please open your **Vercel** link instead to use the AI Bot.", 'bot-message', true);
+                } else if (error.name === 'TypeError' || error.message.includes('fetch')) {
                     appendMessage("❌ Network error. **Did you start the server?** Make sure to run `node server.js` in your terminal first.", 'bot-message', true);
                 } else {
-                    appendMessage("❌ Network error. Please check your connection and try again.", 'bot-message');
+                    appendMessage("❌ Server error. If you are on Vercel, please make sure you added `GEMINI_API_KEY` to the **Environment Variables** in your Vercel Dashboard.", 'bot-message', true);
                 }
             }
             
